@@ -1,0 +1,19 @@
+{
+  "name": "food-me-likey",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Travis Persson",
+  "license": "ISC",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "2.0.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/node": "^7.12.16",
+    "@babel/preset-env": "^7.12.16"
+  }
+}
