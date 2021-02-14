@@ -51,13 +51,20 @@ const getAllRestaurants = async (queries) => {
 const getSpecificRestaurant = async (id) => {
   try {
     if (!db) db = await connectToDatabase();
-    const result = await models.Restaurant.findOne({ id });
-    return { error: false, statusCode: 200, data: result };
+    const restaurant = await models.Restaurant.findOne({ id });
+    if (!restaurant) {
+      return {
+        error: true,
+        statusCode: 404,
+        message: `Restaurant with id ${id} was not found!`,
+      };
+    }
+    return { error: false, statusCode: 200, data: restaurant };
   } catch (error) {
     return {
       error: true,
-      statusCode: 404,
-      message: `Restaurant with id ${id} not found!`,
+      statusCode: 500,
+      message: error.toString(),
     };
   }
 };
@@ -102,6 +109,7 @@ const deleteRestaurant = async (id) => {
       };
     }
     const result = await restaurant.remove();
+    console.log(result)
     return { error: false, statusCode: 204, data: result };
   } catch (error) {
     return {

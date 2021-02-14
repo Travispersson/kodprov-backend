@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
   const queries = req.query;
   const result = await restaurantController.getAllRestaurants(queries);
   if (result.error) {
-    return res.status(result.statusCode).send(result.message);
+    return res.status(result.statusCode).send({ error: result.message });
   } else {
     return res.status(result.statusCode).send(result.data);
   }
@@ -19,7 +19,7 @@ router.get("/:restaurantId", async (req, res) => {
   const id = req.params.restaurantId;
   const result = await restaurantController.getSpecificRestaurant(id);
   if (result.error) {
-    return res.status(result.statusCode).send(result.message);
+    return res.status(result.statusCode).send({ error: result.message });
   } else {
     return res.status(result.statusCode).send(result.data);
   }
@@ -40,7 +40,7 @@ router.put("/:restaurantId", async (req, res) => {
   const id = req.params.restaurantId;
   const result = await restaurantController.updateRestaurant(id, content);
   if (result.error) {
-    return res.status(result.statusCode).send(result.message);
+    return res.status(result.statusCode).send({ error: result.message });
   } else {
     return res.status(result.statusCode).send(result.data);
   }
@@ -50,7 +50,7 @@ router.delete("/:restaurantId", async (req, res) => {
   const id = req.params.restaurantId;
   const result = await restaurantController.deleteRestaurant(id);
   if (result.error) {
-    return res.status(result.statusCode).send(result.message);
+    return res.status(result.statusCode).send({ error: result.message });
   } else {
     return res.status(result.statusCode).send(result.data);
   }
