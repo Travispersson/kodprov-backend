@@ -1,12 +1,23 @@
 version: "3.3"
 services:
-  mongo_provision:
-    build: ./provision
-    links:
-     - mongodb
+  api:
+    build: .
+    depends_on: 
+      - mongodb
+    environment:
+      - PORT=3000
+      - DB_HOST=mongodb
+      - DB_PORT=27017
+    ports:
+      - "3000:3000"
 
   mongodb:
     image: mongo
     ports:
       - "27017:27017"
       - "28017:28017"
+
+  mongo_provision:
+    build: ./provision
+    links:
+      - mongodb
