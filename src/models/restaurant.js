@@ -1,12 +1,15 @@
 import mongoose from "mongoose";
 
-/* attributes taken from the provision folder */
+/* 
+  Properties taken from the provision folder
+  However added required attributes on some properties
+*/
 const restaurantSchema = new mongoose.Schema({
-  name: String,
+  name: { type: String, required: true },
   id: { type: Number, index: true, unique: true },
-  opening_hours: [String],
-  address: String,
-  phone_number: String,
+  opening_hours: { type: [String], required: true },
+  address: { type: String, required: true },
+  phone_number: { type: String, required: true },
   location: { lat: Number, lng: Number },
   icon: String,
   price_level: Number,

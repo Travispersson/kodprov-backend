@@ -2,7 +2,6 @@ import "dotenv/config";
 import express from "express";
 import routes from "./routes";
 import models from "./models";
-import connectToDatabase from "./db";
 
 const app = express();
 
@@ -27,5 +26,3 @@ app.use("/api/restaurants", routes.restaurants);
 app.listen(process.env.PORT, () =>
   console.log(`Listening on port ${process.env.PORT}!`)
 );
-
-connectToDatabase();
