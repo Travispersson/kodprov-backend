@@ -47,14 +47,19 @@ router.post("/", async (req, res) => {
 
 router.put("/:restaurantId", async (req, res) => {
   try {
-    const id = req.params.restaurantId;
+    const id = { id: req.params.restaurantId };
     //assume we only can update website atm
+    console.log(req.body.website);
     const updateContent = { website: req.body.website };
-    const restaurant = await req.context.models.Restaurant.findByIdAndUpdate(
-      id
+    const restaurant = await req.context.models.Restaurant.findOneAndUpdate(
+      id,
+      updateContent,
+      { new: true }
     );
+    console.log(restaurant);
     res.send(restaurant);
   } catch (error) {
+    console.log(error);
     res.send(error);
   }
 });
