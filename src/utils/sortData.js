@@ -34,6 +34,8 @@ const compareRating = (a, b) => {
  * Will sort the list of restaurants in data in ascending order depending on property sortOn
  * @param {[object]} data list of restaurants
  * @param {string} sortOn either name, price_level or rating
+ * 
+ * TODO maybe make generic..
  */
 const sortData = (data, sortOn) => {
   let toBeSorted = [...data];
