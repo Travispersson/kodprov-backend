@@ -1,5 +1,9 @@
 # Code test for NENT Tech Trainee Programme 2021
-## Instructions
+## How to run
+- Run the api and mongodb instance by calling the following command in the root folder. (The api server will occupy port 3000).
+  - `docker-compose up --build`
+- Run tests by calling the following command in the root folder.
+  - `yarn test`
 
 ### API
 ### Examples of API requests 
