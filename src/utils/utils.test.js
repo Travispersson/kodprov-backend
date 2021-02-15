@@ -34,6 +34,19 @@ test("test that an array of objects containing the address property actually get
   ]);
 });
 
+test("test that filtering on two different properties work (both price_level and name property)", () => {
+  const testResult = filterData(
+    [
+      { name: "potato bar", price_level: 4 },
+      { name: "Burgers n beers", price_level: 5 },
+      { name: "Burgerino bars", price_level: 5 },
+    ],
+    { name: "bar", price_level: 5 }
+  );
+
+  expect(testResult).toEqual([{ name: "Burgerino bars", price_level: 5 }]);
+});
+
 test("test that choices containing properties not in objects in data returns an untouched list", () => {
   const testResult = filterData(
     [

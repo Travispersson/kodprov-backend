@@ -4,6 +4,7 @@ import sortData from "../utils/sortData";
 import filterData from "../utils/filterData";
 import _ from "lodash";
 
+/* used to check that a connection to the database has been made before querying it */
 let db;
 
 const getAllRestaurants = async (queries) => {
@@ -33,7 +34,6 @@ const getAllRestaurants = async (queries) => {
       filters["name"] = queries.name;
       data = filterData(data, filters);
     }
-
     return {
       error: false,
       statusCode: 200,
@@ -88,7 +88,6 @@ const createRestaurant = async (content) => {
     });
     return { error: false, statusCode: 201, data: restaurant };
   } catch (error) {
-    console.log(error.code);
     return {
       error: true,
       statusCode: 500,
@@ -109,7 +108,6 @@ const deleteRestaurant = async (id) => {
       };
     }
     const result = await restaurant.remove();
-    console.log(result)
     return { error: false, statusCode: 204, data: result };
   } catch (error) {
     return {
@@ -137,7 +135,7 @@ const updateRestaurant = async (id, content) => {
         Is this alright ..or should we validate that each property in content is ok and throw error otherwise?
     */
     const result = await restaurant.update(content, { new: true });
-    return { error: false, statusCode: 202, data: result };
+    return { error: false, statusCode: 202, data: `Restaurant with id: ${id} was successfully updated!`};
   } catch (error) {
     return {
       error: true,
