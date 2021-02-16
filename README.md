@@ -163,7 +163,6 @@ Now my API design is limited to this one react+nodejs tutorial I took last year 
 * **Success Response:**
 
   * **Code:** 202 <br />
-    **Content:** `{<updated restaurant>}`
  
 * **Error Response:**
   
@@ -200,7 +199,6 @@ Now my API design is limited to this one react+nodejs tutorial I took last year 
 * **Success Response:**
 
   * **Code:** 204 <br />
-    **Content:** `{<the removed restaurant>}`
  
 * **Error Response:**
   * **Code:** 404 NOT FOUND <br />
@@ -235,7 +233,7 @@ Now my API design is limited to this one react+nodejs tutorial I took last year 
 
 * **Success Response:**
 
-  * **Code:** 202 <br />
+  * **Code:** 201 <br />
     **Content:** `{<the inserted restaurant>}`
  
 * **Error Response:**
