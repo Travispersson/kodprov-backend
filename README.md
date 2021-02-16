@@ -13,8 +13,8 @@
   - docker-compose version 1.27.4
   - For installed packages check package.json
 
-# API
-**Get list of restaurants**
+## API
+### Get list of restaurants
 ----
   Returns json data containing a list of restaurants.
 
@@ -49,7 +49,7 @@
   * **Code:** 500 <br />
     **Content:** `{ error: "Couldn't fetch all restaurants from database." }`
 
-**Get specific restaurant**
+###Get specific restaurant
 ----
   Returns json data containing information on the specific restaurant.
 
@@ -85,7 +85,7 @@
     **Content:** `{ error }`
 
 
-**Update specific restaurant**
+###Update specific restaurant
 ----
   Update the contents of a specific restaurant
 
@@ -120,7 +120,7 @@
   * **Code:** 500 <br />
     **Content:** `{ error }`
 
-**Delete specific restaurant**
+###Delete specific restaurant
 ----
   Deletes the specific restaurant from the database.
 
@@ -154,7 +154,8 @@
 
   * **Code:** 500 <br />
     **Content:** `{ error }`
-**Create a restaurant**
+    
+###Create a restaurant
 ----
   Inserts a new restaurant into the database
 
