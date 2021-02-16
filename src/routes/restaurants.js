@@ -5,6 +5,7 @@ const router = express.Router();
 
 const restaurantController = controller.restaurantController;
 
+
 router.get("/", async (req, res) => {
   const queries = req.query;
   const result = await restaurantController.getAllRestaurants(queries);

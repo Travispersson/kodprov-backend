@@ -1,6 +1,8 @@
 import "dotenv/config";
 import mongoose from "mongoose";
 
+/* handles database connection */
+
 const dbConnection = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/viaplay`;
 
 const connectToDatabase = async () => {

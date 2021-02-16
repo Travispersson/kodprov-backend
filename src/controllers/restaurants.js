@@ -7,6 +7,15 @@ import _ from "lodash";
 /* used to check that a connection to the database has been made before querying it */
 let db;
 
+/**
+ * Handles the GET request to fetch all the restaurants
+ * @param {object} queries contains the queried key-value pairs if applied by the client
+ * @returns an object containing information to send back to the client,
+ *          error property that is false if no error produced else true
+ *          if error is false a data property containing data to be sent back
+ *          if error is true a message property defining the error
+ *          statusCode property containing some appropriate status code depending on the outcome of the request
+ */
 const getAllRestaurants = async (queries) => {
   try {
     if (!db) db = await connectToDatabase();
@@ -48,6 +57,15 @@ const getAllRestaurants = async (queries) => {
   }
 };
 
+/**
+ * Handles the GET request to fetch a specific restaurant
+ * @param {integer} id the id of the restaurant
+ * @returns an object containing information to send back to the client,
+ *          error property that is false if no error produced else true
+ *          if error is false a data property containing data to be sent back
+ *          if error is true a message property defining the error
+ *          statusCode property containing some appropriate status code depending on the outcome of the request
+ */
 const getSpecificRestaurant = async (id) => {
   try {
     if (!db) db = await connectToDatabase();
@@ -69,6 +87,15 @@ const getSpecificRestaurant = async (id) => {
   }
 };
 
+/**
+ * Handles the POST request to create a new restaurant
+ * @param {object} content the contents of the restaurant to be created
+ * @returns an object containing information to send back to the client,
+ *          error property that is false if no error produced else true
+ *          if error is false a data property containing data to be sent back
+ *          if error is true a message property defining the error
+ *          statusCode property containing some appropriate status code depending on the outcome of the request
+ */
 const createRestaurant = async (content) => {
   try {
     if (!db) db = await connectToDatabase();
@@ -96,6 +123,15 @@ const createRestaurant = async (content) => {
   }
 };
 
+/**
+ * Handles the DELETE request to delete a specific restaurant
+ * @param {integer} id the id of the restaurant
+ * @returns an object containing information to send back to the client,
+ *          error property that is false if no error produced else true
+ *          if error is false a data property containing data to be sent back
+ *          if error is true a message property defining the error
+ *          statusCode property containing some appropriate status code depending on the outcome of the request
+ */
 const deleteRestaurant = async (id) => {
   try {
     if (!db) db = await connectToDatabase();
@@ -118,6 +154,16 @@ const deleteRestaurant = async (id) => {
   }
 };
 
+/**
+ * Handles the PUT request to update a specific restaurant
+ * @param {integer} id the id of the restaurant
+ * @param {object} content the contents of the specific restaurant that is to be updated
+ * @returns an object containing information to send back to the client,
+ *          error property that is false if no error produced else true
+ *          if error is false a data property containing data to be sent back
+ *          if error is true a message property defining the error
+ *          statusCode property containing some appropriate status code depending on the outcome of the request
+ */
 const updateRestaurant = async (id, content) => {
   try {
     if (!db) db = await connectToDatabase();
@@ -135,7 +181,11 @@ const updateRestaurant = async (id, content) => {
         Is this alright ..or should we validate that each property in content is ok and throw error otherwise?
     */
     const result = await restaurant.update(content, { new: true });
-    return { error: false, statusCode: 202, data: `Restaurant with id: ${id} was successfully updated!`};
+    return {
+      error: false,
+      statusCode: 202,
+      data: `Restaurant with id: ${id} was successfully updated!`,
+    };
   } catch (error) {
     return {
       error: true,
