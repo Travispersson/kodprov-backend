@@ -49,7 +49,7 @@
   * **Code:** 500 <br />
     **Content:** `{ error: "Couldn't fetch all restaurants from database." }`
 
-###Get specific restaurant
+### Get specific restaurant
 ----
   Returns json data containing information on the specific restaurant.
 
@@ -62,9 +62,10 @@
   `GET`
   
 *  **URL Params**
-  Required:
 
-  id=[integer]
+  **Required**
+  
+  `id=[integer]`
 
 * **Data Params**
 
@@ -76,16 +77,17 @@
     **Content:** `{<restaurant>}`
  
 * **Error Response:**
+  
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Restaurant with <id> was not found!" }`
 
- OR
+  OR
 
   * **Code:** 500 <br />
     **Content:** `{ error }`
 
 
-###Update specific restaurant
+### Update specific restaurant
 ----
   Update the contents of a specific restaurant
 
@@ -98,10 +100,11 @@
   `PUT`
   
 *  **URL Params**
-  Required:
-
-  id=[integer]
-
+  
+  **Required**
+  
+  `id=[integer]`
+  
 * **Data Params**
   
   json object containing valid properties of a restaurant to be updated. 
@@ -112,15 +115,16 @@
     **Content:** `{<updated restaurant>}`
  
 * **Error Response:**
+  
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Restaurant with <id> was not found!" }`
 
- OR
+  OR
 
   * **Code:** 500 <br />
     **Content:** `{ error }`
 
-###Delete specific restaurant
+### Delete specific restaurant
 ----
   Deletes the specific restaurant from the database.
 
@@ -133,9 +137,10 @@
   `DELETE`
   
 *  **URL Params**
-  Required:
-
-  id=[integer]
+  
+  **Required**
+  
+  `id=[integer]`
 
 * **Data Params**
   
@@ -150,12 +155,12 @@
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Restaurant with <id> was not found!" }`
 
- OR
+  OR
 
   * **Code:** 500 <br />
     **Content:** `{ error }`
     
-###Create a restaurant
+### Create a restaurant
 ----
   Inserts a new restaurant into the database
 
@@ -169,7 +174,7 @@
   
 *  **URL Params**
 
-  None
+   None
 
 * **Data Params**
   
@@ -183,6 +188,7 @@
     **Content:** `{<the inserted restaurant>}`
  
 * **Error Response:**
+  
   * **Code:** 500 <br />
     **Content:** `{ error }`
 
